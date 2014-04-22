@@ -14,3 +14,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+#doesnt track databasy.yml because of Heroku
+config/database.yml
