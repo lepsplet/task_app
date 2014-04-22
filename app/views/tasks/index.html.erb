@@ -1,2 +1,13 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>Task list</h1>
+<% if @tasks.empty? %>
+	<p>There are no tasks. Juhej!</p>
+	<% else %>
+		<ol>
+			<% for task in @tasks %>
+				<li><%= link_to task.task_name, edit_task_path(task)%>
+				<%= link_to 'Completed', task_path(task), method: :delete, data: { confirm: 'Did you realy complete the task. Because if you did not there will be a lot of spanking' } %></li>
+			<% end %>
+		</ol>
+<% end %>
+<br>
+<%= link_to 'new task', new_task_path %>
